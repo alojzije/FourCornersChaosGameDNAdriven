@@ -75,8 +75,9 @@ def generateMarkovSequence (inputFile ='HIVgenome.txt',  windowSize = 2, markovS
         outputProbM[sequence]['A'] = outputProbM[sequence]['G'] + probabilityMatrix[sequence]['A']
    
    
-    #generate random start slidingWindow e.g. all 'A' bases
-    slidingWindow = ['A' for i in range(windowSize)]
+    #generate start slidingWindow from a random existing sequence 
+    index = random.randrange(0,len(data)-windowSize)    
+    slidingWindow = [data[i] for i in range(index, index+windowSize)]
     output = []
     
     #generate the synthetic data
