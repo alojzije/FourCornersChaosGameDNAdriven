@@ -82,7 +82,8 @@ def generateMarkovSequence (inputFile ='HIVgenome.txt',  windowSize = 2, markovS
     
     #generate the synthetic data
     for i in range (0, markovSeqenceLength):
-        p = random.random()
+        #p = random.random()
+        p = random.uniform(0.0, 1.0)
         currSequence = tuple(slidingWindow)
         if p < outputProbM[currSequence]['C']: succ = 'C'
         elif p < outputProbM[currSequence]['G']: succ = 'G'
